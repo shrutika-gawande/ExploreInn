@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const connectDB = require("../config/db"); // Connect to MongoDB
-const Listing = require("../models/listing");
-const initData = require("./data"); // dummy data array
+const connectDB = require("./config/db"); // Connect to MongoDB
+const Listing = require("./models/listing");
+const initData = require("./init/data"); // dummy data array
 
 async function seedData() {
     await connectDB(); // Must connect here as well!

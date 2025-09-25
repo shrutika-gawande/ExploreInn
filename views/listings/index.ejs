@@ -16,7 +16,7 @@
           <i class="fa-solid fa-paper-plane me-2"></i>Anywhere
         </span>
 
-        <form id="searchForm" class="d-inline">
+        <form id="searchForm" class="d-inline"  method="GET" action="/listings">
           <input id="locationInput" name="location" placeholder="Search location..." style="
             border: none;
             outline: none;
@@ -68,48 +68,3 @@
       inputEl.focus();
     });
   </script>
-  <!-- <script>
-  const anywhereBtn = document.getElementById("anywhere");
-  const searchBtn   = document.getElementById("search");
-  let inputEl; // will store the input when created
-
-  // When user clicks "Anywhere", replace it with an input field
-  anywhereBtn.addEventListener("click", () => {
-    anywhereBtn.outerHTML = `
-      <input id="locationInput" placeholder="Search location..." type="text"
-        style="border:none; outline:none; margin-left:5px; width:10rem; background:transparent;"
-      />
-    `;
-    inputEl = document.getElementById("locationInput");
-    inputEl.focus();
-  });
-
-  // When user clicks the search button
-  searchBtn.addEventListener("click", () => {
-    if (!inputEl) return;
-
-    const query = inputEl.value.trim().toLowerCase();
-    const cards = document.querySelectorAll(".listing-card");
-    let found = false;
-
-    cards.forEach(card => {
-      const location = (card.dataset.location || "").toLowerCase();
-      const country  = (card.dataset.country || "").toLowerCase();
-
-      if (location.includes(query) || country.includes(query)) {
-        card.style.display = "";
-        found = true;
-      } else {
-        card.style.display = "none";
-      }
-    });
-
-    // If no matches, show alert and reset listings
-    if (!found) {
-      alert("No results found!");
-      cards.forEach(card => {
-        card.style.display = "";
-      });
-    }
-  });
-</script> -->

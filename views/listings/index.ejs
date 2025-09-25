@@ -1,0 +1,115 @@
+<% layout("/layouts/boilerplate") %>
+
+  <body>
+    <!-- filters -->
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid search-bar shadow-sm mt-2">
+        <span class="navbar-text">
+          <a href="/listings/trending" style="text-decoration: none; color: inherit">
+            <i class="fa-solid fa-fire me-2"></i>Trending
+          </a>
+        </span>
+        <span class="divider"></span>
+        <span class="navbar-text"><i class="fa-solid fa-calendar me-2"></i>Anytime</span>
+        <span class="divider"></span>
+        <span class="navbar-text" id="anywhere">
+          <i class="fa-solid fa-paper-plane me-2"></i>Anywhere
+        </span>
+
+        <form id="searchForm" class="d-inline">
+          <input id="locationInput" name="location" placeholder="Search location..." style="
+            border: none;
+            outline: none;
+            margin-left: 5px;
+            width: 10rem;
+            background: transparent;
+            display: none;
+          " />
+          <button type="submit" id="search" class="search-btn">
+            <i class="fa-solid fa-search"></i>
+          </button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- listings -->
+    <div class="row mt-3">
+      <% for (let listing of allListings) { %>
+        <div class="col-md-4 mb-4 listing-card" data-location="<%= listing.location %>"
+          data-country="<%= listing.country %>">
+          <a href="/listings/<%= listing._id %>" style="text-decoration: none; color: inherit">
+            <div class="card h-100">
+              <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.image.filename %>" />
+              <div class="card-body">
+                <h5 class="card-title">
+                    <b><%= listing.title %></b>
+                    <% if(listing.avgRating != 0) { %>
+                      <span class="card-text float-end p-1"><i class="fa-solid fa-star fa-sm" style="color: #000;"></i> <%= listing.avgRating %></span> 
+                    <% } %>
+                  </h5>
+                <p class="card-text">
+                  ₹<%= listing.price.toLocaleString("en-IN") %> / night
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <% } %>
+    </div>
+  </body>
+
+  <script>
+    const anywhereBtn = document.getElementById("anywhere");
+    const inputEl = document.getElementById("locationInput");
+
+    anywhereBtn.addEventListener("click", () => {
+      anywhereBtn.style.display = "none";
+      inputEl.style.display = "inline-block";
+      inputEl.focus();
+    });
+  </script>
+  <!-- <script>
+  const anywhereBtn = document.getElementById("anywhere");
+  const searchBtn   = document.getElementById("search");
+  let inputEl; // will store the input when created
+
+  // When user clicks "Anywhere", replace it with an input field
+  anywhereBtn.addEventListener("click", () => {
+    anywhereBtn.outerHTML = `
+      <input id="locationInput" placeholder="Search location..." type="text"
+        style="border:none; outline:none; margin-left:5px; width:10rem; background:transparent;"
+      />
+    `;
+    inputEl = document.getElementById("locationInput");
+    inputEl.focus();
+  });
+
+  // When user clicks the search button
+  searchBtn.addEventListener("click", () => {
+    if (!inputEl) return;
+
+    const query = inputEl.value.trim().toLowerCase();
+    const cards = document.querySelectorAll(".listing-card");
+    let found = false;
+
+    cards.forEach(card => {
+      const location = (card.dataset.location || "").toLowerCase();
+      const country  = (card.dataset.country || "").toLowerCase();
+
+      if (location.includes(query) || country.includes(query)) {
+        card.style.display = "";
+        found = true;
+      } else {
+        card.style.display = "none";
+      }
+    });
+
+    // If no matches, show alert and reset listings
+    if (!found) {
+      alert("No results found!");
+      cards.forEach(card => {
+        card.style.display = "";
+      });
+    }
+  });
+</script> -->

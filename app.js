@@ -35,7 +35,7 @@ app.listen(3000, () => {
 });
 
 const store = MongoStore.create({
-    mongoUrl:MONGO_URL,
+    mongoUrl: process.env.ATLASDB_URL,
     crypto: {
         secret: process.env.SECRET,
     },

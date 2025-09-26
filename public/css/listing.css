@@ -63,13 +63,10 @@ h1, h2, h3, h4, h5, h6 {
 /* filter bar compact on mobile */
 @media (max-width: 576px) {
   .search-bar {
-    display: flex;
-    flex-wrap: nowrap;    
+    display: flex;   
     align-items: center !important;
     justify-content: space-between;
-    max-width: 95%;      
-    height: 45px;         
-    padding: 2px 5px !important;
+    max-width: 95%;  
   }
 
   .navbar-text {
@@ -80,12 +77,12 @@ h1, h2, h3, h4, h5, h6 {
 
   .divider-line {
     height: 18px;
-    margin: 0 4px;
+    margin: 0 !important;
   }
 
   .search-bar input {
     width: 5.5rem !important;  
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
 
   .search-btn {         

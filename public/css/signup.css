@@ -1,42 +1,61 @@
-.signup, .login {
-      height: 100%;
-      margin: 1.5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .signup-card, .login-card {
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      padding: 30px 40px;
-      width: 450px;
-      max-width: 90%;
-      text-align: center;
-    }
-    .form-label {
-      text-align: left;
-      display: block;
-      margin-left: 5px;
-      margin-bottom: 5px;
-      font-weight: 500;
-      color: #555;
-    }
-    .divider {
-      margin: 10px 0;
-      display: flex;
-      align-items: center;
-    }
-    .divider::before, .divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: #ddd;
-    }
-    .divider span {
-      margin: 0 10px;
-      color: #aaa;
-    }
-    .invalid-feedback , .valid-feedback{
-        margin-left: 0;
-        text-align: left;
-    }
+.signup,
+.login {
+  height: 100%;
+  margin: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-card,
+.login-card {
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  padding: 30px 40px;
+  width: 450px;
+  max-width: 90%;
+  text-align: center;
+}
+.form-label {
+  text-align: left;
+  display: block;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #555;
+}
+.divider {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+.divider span {
+  margin: 0 10px;
+  color: #aaa;
+}
+.invalid-feedback,
+.valid-feedback {
+  margin-left: 0;
+  text-align: left;
+}
+
+/* make forms wider on small screens */
+@media (max-width: 576px) {
+  .signup,
+  .login {
+    margin: 0.5rem; /* reduce side margins */
+  }
+
+  .signup-card,
+  .login-card {
+    width: 100%;
+    max-width: 95%;
+    padding: 20px; 
+  }
+}

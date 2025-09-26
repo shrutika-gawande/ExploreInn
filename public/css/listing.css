@@ -60,6 +60,22 @@ h1, h2, h3, h4, h5, h6 {
   background: #e03150; 
 }
 
+/* filter bar compact on mobile */
+@media (max-width: 576px) {
+  .search-bar {
+    padding: 4px 8px !important;
+    font-size: 0.8rem;
+  }
+  .search-bar input {
+    width: 6rem !important;
+    font-size: 0.8rem;
+  }
+  .search-bar i {
+    font-size: 0.9rem;
+  }
+}
+
+
 /* footer */
 footer {
     background-color: #ebebeb;
@@ -110,7 +126,7 @@ footer {
     font-size: clamp(1rem, 3vw, 1.3rem);
 }
 .card-text {
-    font-size: clamp(0.8rem, 2vw, 1rem);
+    font-size: clamp(0.9rem, 2vw, 1rem);
     color: #333;
 }
 .card-img-top {

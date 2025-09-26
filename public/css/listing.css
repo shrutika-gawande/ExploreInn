@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-text:hover {
   color: black; /* darker shade on hover */
 }
-.divider {
+.divider-line{
   border-left: 1px solid #3333334d;
   height: 24px;
 }
@@ -76,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
   .search-bar i {
     font-size: 0.9rem;
   }
+  
 }
 
 
